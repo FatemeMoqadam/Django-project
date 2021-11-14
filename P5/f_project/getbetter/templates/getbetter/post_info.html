@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalabel=no">
+    <title>Post Info</title>
+</head>
+<style>
+    body {
+        background-image: url('https://fatememoqadam.github.io/assets/images/123.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-size: 200%;
+        color: rgb(36, 117, 70);
+    }
+</style>
+
+<body dir="rtl">
+    <center>
+        <br>
+        <form action="/post_info/" method="post">{% csrf_token %}
+            <label for="feeling">حال و احوال مورد نظر را انتخاب کنید:</label><br>
+            <select class="from_control" name="feeling" id="feeling" style="font-size: 70%;">
+                {% for feeling in latest_feeling_list %}
+                <option>{{ feeling.feeling_text }}</option>
+                {%endfor%}
+            </select>
+            <div class="from_group">
+                <label for="suggested_movie">فیام پیشنهادی:</label><br>
+                <input type="text" name="suggested_movie" id="suggested_movie" class="from_control" style="width: 30%;">
+            </div>
+            <div class="from_group"></div>
+            <label for="link">لینک فیلم:</label><br>
+            <input type="url" name="link" id="link" class="from_control" style="width: 30%;">
+            </div>
+            <div class="from_group">
+                <label for="suggested_song">موسیقی پیشنهادی:</label><br>
+                <input type="text" name="suggested_song" id="suggested_song" class="from_control" style="width: 30%;">
+            </div>
+            <div class="from_group"></div>
+            <label for="songlink">لینک موسیقی:</label><br>
+            <input type="url" name="songlink" id="songlink" class="from_control" style="width: 30%;">
+            </div>
+            <br><br><a herf="{% url 'getbetter:feel' %}">
+                <button type="submit" class="btn btn-primary">ثبت اطلاعات</button>
+            </a>
+        </form>
+    </center>
+</body>
+
+</html>

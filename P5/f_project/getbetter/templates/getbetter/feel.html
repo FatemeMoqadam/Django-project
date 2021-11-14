@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>How You Feeling</title>
+</head>
+<style>
+    body {
+        background-image: url('https://fatememoqadam.github.io/assets/images/123.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    h1 {
+        color: rgb(16, 88, 44);
+        text-align: center
+    }
+
+    form {
+        font-size: 300%;
+        text-align: center
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0
+    }
+</style>
+
+<body>
+    <div>
+        <h1 dir="rtl">
+            حال خود را چگونه توصیف می‌کنید؟
+        </h1>
+        {% if latest_feeling_list %}
+        <form dir="rtl">
+            <ul>
+                {% for feeling in latest_feeling_list %}
+                <li>
+                    <a href="{% url 'getbetter:result' feeling.id %}" style="color: rgb(17, 196, 85);">
+                        {{ feeling.feeling_text }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </form>
+        {% endif %}
+    </div>
+</body>
+
+</html>

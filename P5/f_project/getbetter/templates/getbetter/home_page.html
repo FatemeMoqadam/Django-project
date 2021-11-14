@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Home</title>
+</head>
+<style>
+    body {
+        background-image: url('https://fatememoqadam.github.io/assets/images/32.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat
+    }
+
+    h1 {
+        color: rgb(12, 2, 100);
+        text-align: center;
+        font-size: 230%;
+        font-style: bold
+    }
+
+    h5 {
+        color: rgb(0, 0, 0);
+        font-size: 170%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    button {
+        border-radius: 8px;
+        padding: 12px 28px;
+        font-size: 25px;
+        background-color: rgb(149, 221, 167)
+    }
+</style>
+
+<body dir="ltr">
+
+    <h1>
+        <b>Let's try and feel better</b>
+    </h1>
+
+    <h5>
+        <br><br>
+        If you are feeling down, stressed, tired or . . . we will help you:)
+        <br><br>
+        First take a test
+        <br><br>
+        Then we will give you some recommendations on what can make you feel better!
+        <br><br>
+        Simple,right? If you are in:
+        <br><br><br>
+        <button>
+            <a href="{% url 'getbetter:feel' %}" style="color: rgb(4, 104, 42);">LET'S GO</a>
+        </button>
+
+    </h5>
+</body>
+
+</html>

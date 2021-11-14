@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Result</title>
+</head>
+<style>
+    body {
+        background-image: url('https://fatememoqadam.github.io/assets/images/123.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(30, 48, 29)
+    }
+
+    table {
+        left: 400px;
+        border-style: hidden;
+        font-size: 150%;
+        border-color: rgb(2, 155, 53);
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    th {
+        font-family: Verdana;
+        width: 50%;
+        text-align: center
+    }
+
+    td {
+        text-align: center
+    }
+
+    button {
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        border-radius: 8px;
+        padding: 12px 28px;
+        font-size: 15px;
+        background-color: rgb(149, 221, 167)
+    }
+</style>
+
+<body>
+    <h1>
+        {{feeling.feeling_text}}
+    </h1>
+    <br><br>
+    <table border="2">
+        <tr>
+            <th scope="col">Suggested Movie</th>
+            <th scope="col">Link</th>
+        </tr>
+        </thead>
+        <tbody>
+            {%for solutions in feeling.solutions.all%}
+            <tr>
+                <td style="font-family: cursive">{{solutions.suggested_movie}}</td>
+                <td><a href={{solutions.link}}>Watch</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br><br>
+    <table border="2">
+        <thead>
+            <tr>
+                <th scope="col">Suggested Music</th>
+                <th scope="col">Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for solutionsongs in feeling.solutionsongs.all%}
+            <tr>
+                <td style="font-family: cursive">{{solutionsongs.suggested_song}}</td>
+                <td><a href={{solutionsongs.link}}>Listen</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br><br><br><br><br>
+    <a href="{% url 'getbetter:post_info' %}" style="color: rgb(19, 97, 60)"><button>ثبت اطلاعات
+            جدید</button></a>
+    <br><br><br><br>
+    <a href="{% url 'getbetter:feel' %}" style="color: rgb(19, 97, 60)"><button>انتخاب
+            دوباره</button></a>
+    <br><br><br><br>
+    <a href="{% url 'getbetter:finish' %}" style="color: rgb(19, 97, 60)"><button>پایان</button></a>
+ </body>
+
+</html>
